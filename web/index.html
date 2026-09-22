@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Matrix Operations System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Matrix Operations System</h1>
+  <p class="subtitle">C++ engine &middot; served over a web interface</p>
+
+  <div class="controls">
+    <label>Operation:
+      <select id="operation">
+        <option value="add">Addition (A + B)</option>
+        <option value="subtract">Subtraction (A - B)</option>
+        <option value="multiply">Multiplication (A * B)</option>
+        <option value="transpose">Transpose (A)</option>
+        <option value="determinant">Determinant (A)</option>
+        <option value="inverse">Inverse (A)</option>
+        <option value="rank">Rank (A)</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="matrices">
+    <div class="matrix-block">
+      <h3>Matrix A</h3>
+      <div class="size-controls">
+        Rows: <input type="number" id="aRows" value="2" min="1" max="6">
+        Cols: <input type="number" id="aCols" value="2" min="1" max="6">
+        <button onclick="buildGrid('a')">Set Size</button>
+      </div>
+      <div id="aGrid" class="grid"></div>
+    </div>
+
+    <div class="matrix-block" id="bBlock">
+      <h3>Matrix B</h3>
+      <div class="size-controls">
+        Rows: <input type="number" id="bRows" value="2" min="1" max="6">
+        Cols: <input type="number" id="bCols" value="2" min="1" max="6">
+        <button onclick="buildGrid('b')">Set Size</button>
+      </div>
+      <div id="bGrid" class="grid"></div>
+    </div>
+  </div>
+
+  <button class="compute-btn" onclick="compute()">Compute</button>
+
+  <h2>Result</h2>
+  <div id="output" class="output"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

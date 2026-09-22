@@ -1,0 +1,66 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+  color: #222;
+}
+h1 { margin-bottom: 4px; }
+.subtitle { color: #666; margin-top: 0; margin-bottom: 25px; }
+
+.controls { margin-bottom: 20px; }
+select, input[type=number], button {
+  font-size: 1em;
+  padding: 6px 10px;
+  margin: 4px;
+}
+button {
+  background: #2c5aa0;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover { background: #1e4079; }
+
+.matrices { display: flex; gap: 30px; flex-wrap: wrap; }
+.matrix-block {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 15px;
+  flex: 1;
+  min-width: 260px;
+}
+.size-controls { margin-bottom: 10px; font-size: 0.9em; }
+.size-controls input { width: 50px; }
+
+.grid { display: grid; gap: 4px; }
+.grid input {
+  width: 55px;
+  text-align: center;
+  padding: 4px;
+}
+
+.compute-btn {
+  margin-top: 20px;
+  font-size: 1.1em;
+  padding: 10px 20px;
+}
+
+.output {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 6px;
+  background: #f4f6f9;
+  min-height: 40px;
+}
+.output.error { background: #fde8e8; color: #a33; }
+
+table.matrix-table {
+  border-collapse: collapse;
+}
+table.matrix-table td {
+  border: 1px solid #999;
+  padding: 6px 12px;
+  text-align: center;
+}
