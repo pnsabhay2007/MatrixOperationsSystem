@@ -3,53 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <title>Matrix Operations System</title>
-<link rel="stylesheet" href="style.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+  canvas { display: block; position: fixed; top: 0; left: 0; z-index: 1; }
+  .landing {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .bracket {
+    font-size: 5rem;
+    font-weight: 300;
+    color: #eafff0;
+    text-shadow: 0 0 18px rgba(140,255,170,0.6);
+    transition: transform 0.3s ease;
+  }
+  .brand:hover .bracket.left { transform: translateX(-8px); }
+  .brand:hover .bracket.right { transform: translateX(8px); }
+  .title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 0 25px rgba(80, 255, 140, 0.55);
+    letter-spacing: 2px;
+    transition: text-shadow 0.3s ease;
+  }
+  .brand:hover .title { text-shadow: 0 0 40px rgba(80, 255, 140, 0.9); }
+  .subtitle {
+    margin-top: 22px;
+    color: #8fdba0;
+    font-size: 1.05rem;
+    opacity: 0.85;
+    letter-spacing: 1px;
+  }
+  .enter-hint {
+    margin-top: 40px;
+    color: #6fbf80;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    animation: pulse 2s infinite ease-in-out;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.9; }
+  }
+</style>
 </head>
 <body>
-  <h1>Matrix Operations System</h1>
-  <p class="subtitle">C++ engine &middot; served over a web interface</p>
-
-  <div class="controls">
-    <label>Operation:
-      <select id="operation">
-        <option value="add">Addition (A + B)</option>
-        <option value="subtract">Subtraction (A - B)</option>
-        <option value="multiply">Multiplication (A * B)</option>
-        <option value="transpose">Transpose (A)</option>
-        <option value="determinant">Determinant (A)</option>
-        <option value="inverse">Inverse (A)</option>
-        <option value="rank">Rank (A)</option>
-      </select>
-    </label>
+  <canvas id="rain"></canvas>
+  <div class="landing">
+    <a href="app.html" class="brand" style="text-decoration:none;">
+      <span class="bracket left">[</span>
+      <span class="title">MATRIX</span>
+      <span class="bracket right">]</span>
+    </a>
+    <div class="subtitle">C++ Engine &middot; Web Interface &middot; Real-Time Matrix Computation</div>
+    <div class="enter-hint">Click to Enter</div>
   </div>
-
-  <div class="matrices">
-    <div class="matrix-block">
-      <h3>Matrix A</h3>
-      <div class="size-controls">
-        Rows: <input type="number" id="aRows" value="2" min="1" max="6">
-        Cols: <input type="number" id="aCols" value="2" min="1" max="6">
-        <button onclick="buildGrid('a')">Set Size</button>
-      </div>
-      <div id="aGrid" class="grid"></div>
-    </div>
-
-    <div class="matrix-block" id="bBlock">
-      <h3>Matrix B</h3>
-      <div class="size-controls">
-        Rows: <input type="number" id="bRows" value="2" min="1" max="6">
-        Cols: <input type="number" id="bCols" value="2" min="1" max="6">
-        <button onclick="buildGrid('b')">Set Size</button>
-      </div>
-      <div id="bGrid" class="grid"></div>
-    </div>
-  </div>
-
-  <button class="compute-btn" onclick="compute()">Compute</button>
-
-  <h2>Result</h2>
-  <div id="output" class="output"></div>
-
-  <script src="script.js"></script>
+  <script src="rain.js"></script>
 </body>
 </html>
